@@ -1,0 +1,138 @@
+<edmx:Edmx
+    xmlns:edmx="http://schemas.microsoft.com/ado/2007/06/edmx"
+    xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata"
+    xmlns:sap="http://www.sap.com/Protocols/SAPData" Version="1.0">
+    <edmx:DataServices m:DataServiceVersion="2.0">
+        <Schema
+            xmlns="http://schemas.microsoft.com/ado/2008/09/edm" Namespace="ZLIMAN_TEST_SRV" xml:lang="tr" sap:schema-version="1">
+            <EntityType Name="GemiTanim" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="Imono"/>
+                </Key>
+                <Property Name="Imono" Type="Edm.String" Nullable="false" MaxLength="7" sap:label="İmo Numarası" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="GemiAdi" Type="Edm.String" MaxLength="40" sap:label="Gemi adı" sap:sortable="false"/>
+                <Property Name="GemiEskiAdi" Type="Edm.String" MaxLength="40" sap:label="Gemi adı" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Armator" Type="Edm.String" MaxLength="10" sap:label="Müşteri" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Bayrak" Type="Edm.String" MaxLength="3" sap:label="Bayrak" sap:sortable="false"/>
+                <Property Name="YapimYili" Type="Edm.String" MaxLength="4" sap:label="Gemi Yapım yılı" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Boy" Type="Edm.String" MaxLength="3" sap:label="Gemi Boy" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="En" Type="Edm.String" MaxLength="2" sap:label="Gemi En" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Dwt" Type="Edm.String" MaxLength="6" sap:label="Dwt" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Grt" Type="Edm.String" MaxLength="5" sap:label="Grt" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Nrt" Type="Edm.String" MaxLength="5" sap:label="Nrt" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="MinDr" Type="Edm.Decimal" Precision="13" Scale="3" sap:label="Min. draft" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="MaxDr" Type="Edm.Decimal" Precision="13" Scale="3" sap:label="Max. draft" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="MaxAirDr" Type="Edm.Decimal" Precision="13" Scale="3" sap:label="Max.Adraft" sap:sortable="false" sap:filterable="false"/>
+                <NavigationProperty Name="Seferler" Relationship="ZLIMAN_TEST_SRV.GemiTanimSeferGemi" FromRole="FromRole_GemiTanimSeferGemi" ToRole="ToRole_GemiTanimSeferGemi"/>
+            </EntityType>
+            <EntityType Name="SeferGemi" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="GelisNo"/>
+                </Key>
+                <Property Name="GelisNo" Type="Edm.String" Nullable="false" MaxLength="11" sap:label="Geliş No" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Faaliyet" Type="Edm.String" MaxLength="1" sap:label="Faaliyet" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Status" Type="Edm.String" MaxLength="1" sap:label="Gemi Yeri" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Imono" Type="Edm.String" Nullable="false" MaxLength="7" sap:label="İmo Numarası" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Acenta1" Type="Edm.String" MaxLength="10" sap:label="Y.içi Acente" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Acenta2" Type="Edm.String" MaxLength="10" sap:label="Y.dışı Acente" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Liman" Type="Edm.String" MaxLength="6" sap:label="Yükleme Yeri" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Yuktipi" Type="Edm.String" MaxLength="1" sap:label="Yük Tipi" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="DurusGunHesapla" Type="Edm.String" MaxLength="1" sap:label="Duruş Günlerini hesaba al alma" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="ZblG" Type="Edm.Decimal" Precision="13" Scale="3" sap:label="B/L quantity" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="ZblTonaj" Type="Edm.Decimal" Precision="13" Scale="0" sap:label="B/L quantity" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Rate" Type="Edm.Decimal" Precision="10" Scale="0" sap:label="Rate" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="TahYanTar" Type="Edm.DateTime" Precision="7" sap:label="Tah.Yanaş.Tarihi" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="TahYanSaat" Type="Edm.Time" Precision="0" sap:label="Tah.Yanaş.Zamanı" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="TahBasTar" Type="Edm.DateTime" Precision="7" sap:label="Tahm.Başl.Tar." sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="TahBasSaat" Type="Edm.Time" Precision="0" sap:label="Tah.Baş.Saat." sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="TahBitTar" Type="Edm.DateTime" Precision="7" sap:label="Tah.Tahl.Bitiş Tarih" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="TahBitSaat" Type="Edm.Time" Precision="0" sap:label="Tah.Tahl.BitişZaman" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="TahAyrTar" Type="Edm.DateTime" Precision="7" sap:label="Tah.Ayrılış Tarihi" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="TahAyrSaat" Type="Edm.Time" Precision="0" sap:label="Tah.Ayrılış Saati" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="YanasmaTipi" Type="Edm.String" MaxLength="1" sap:label="yanaşma kodu yırt içi yurt dışı" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="TahliyeRate" Type="Edm.Decimal" Precision="15" Scale="3" sap:label="Tahliye Rate" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="DemorajRate" Type="Edm.Decimal" Precision="14" Scale="3" sap:label="Demoraj Rate" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="DespatchRate" Type="Edm.Decimal" Precision="14" Scale="3" sap:label="Despatch Rate" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Aciklama" Type="Edm.String" MaxLength="255" sap:label="Açıklama" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="DemirlemeTarih" Type="Edm.DateTime" Precision="7" sap:label="Demirleme Tarihi" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="DemirlemeSaati" Type="Edm.Time" Precision="0" sap:label="Demirleme Saati" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="DemirlemeNedeni" Type="Edm.String" MaxLength="1" sap:label="Demirleme Nedeni" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="GerYanasmaTarihi" Type="Edm.DateTime" Precision="7" sap:label="Gemi Yanaşma Tarihi" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="GerYanasmaSaati" Type="Edm.Time" Precision="0" sap:label="Gemi Yanaşma Saati" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="GerTahlBaslTarihi" Type="Edm.DateTime" Precision="7" sap:label="Tah.Başl. Tarihi" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="GerTahlBaslSaati" Type="Edm.Time" Precision="0" sap:label="Tah.Başl. Saati" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="GerTahlBitTarihi" Type="Edm.DateTime" Precision="7" sap:label="Tah.Bitiş Tarihi" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="GerTahlBitSaati" Type="Edm.Time" Precision="0" sap:label="Tah.Bitiş Saati" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="GerLimAyrilisTarihi" Type="Edm.DateTime" Precision="7" sap:label="Lim.ayrılış tarihi" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="GerLimAyrilisSaati" Type="Edm.Time" Precision="0" sap:label="Lim.ayrılış saati" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="YanKlavuzKaptan" Type="Edm.String" MaxLength="5" sap:label="Ayıran Klvz.Kodu" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="AyiranKlavuzKaptan" Type="Edm.String" MaxLength="5" sap:label="Yanaş.Klvz.Kodu" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="YanastigiRihtim" Type="Edm.String" MaxLength="2" sap:label="Ayrıldığı Rıhtım" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="AyrildigiRihtim" Type="Edm.String" MaxLength="2" sap:label="Rıhtım No" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="BasBabaNo" Type="Edm.String" MaxLength="2" sap:label="Baba No" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="KicBabaNo" Type="Edm.String" MaxLength="2" sap:label="Baba No" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="KantarTonaji" Type="Edm.Decimal" Precision="13" Scale="0" sap:label="Kantar Tonajı" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="EkTahakkukIzni" Type="Edm.String" MaxLength="1" sap:label="Ek.Tah.İzni" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="AtikAlmaTipi" Type="Edm.String" MaxLength="1" sap:label="yanaşma kodu yırt içi yurt dışı" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="CreateDate" Type="Edm.DateTime" Precision="7" sap:label="Tarih" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="CreateTime" Type="Edm.Time" Precision="0" sap:label="Saat" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="CreateUser" Type="Edm.String" MaxLength="12" sap:label="Kullanıcı adı" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="UpdateDate" Type="Edm.DateTime" Precision="7" sap:label="Tarih" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="UpdateTime" Type="Edm.Time" Precision="0" sap:label="Saat" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="UpdateUser" Type="Edm.String" MaxLength="12" sap:label="Kullanıcı adı" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+            </EntityType>
+            <EntityType Name="ZsdShGemiTanim" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="Imono"/>
+                </Key>
+                <Property Name="Imono" Type="Edm.String" Nullable="false" MaxLength="7" sap:label="İmo Numarası" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="GemiAdi" Type="Edm.String" Nullable="false" MaxLength="40" sap:label="Gemi adı" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="GemiEskiAdi" Type="Edm.String" Nullable="false" MaxLength="40" sap:label="Gemi adı" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+            </EntityType>
+            <EntityType Name="ImoNo" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="ImoNumber"/>
+                </Key>
+                <Property Name="ImoNumber" Type="Edm.String" Nullable="false" MaxLength="7" sap:label="İmo Numarası" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Message" Type="Edm.String" Nullable="false" MaxLength="50" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+            </EntityType>
+            <EntityType Name="bayraksh" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="LAND1"/>
+                </Key>
+                <Property Name="LAND1" Type="Edm.String" Nullable="false" MaxLength="3" sap:label="Ülke" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="LANDX" Type="Edm.String" Nullable="false" MaxLength="15" sap:label="Ad" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+            </EntityType>
+            <Association Name="GemiTanimSeferGemi" sap:content-version="1">
+                <End Type="ZLIMAN_TEST_SRV.GemiTanim" Multiplicity="1" Role="FromRole_GemiTanimSeferGemi"/>
+                <End Type="ZLIMAN_TEST_SRV.SeferGemi" Multiplicity="*" Role="ToRole_GemiTanimSeferGemi"/>
+                <ReferentialConstraint>
+                    <Principal Role="FromRole_GemiTanimSeferGemi">
+                        <PropertyRef Name="Imono"/>
+                    </Principal>
+                    <Dependent Role="ToRole_GemiTanimSeferGemi">
+                        <PropertyRef Name="Imono"/>
+                    </Dependent>
+                </ReferentialConstraint>
+            </Association>
+            <EntityContainer Name="ZLIMAN_TEST_SRV_Entities" m:IsDefaultEntityContainer="true" sap:supported-formats="atom json xlsx">
+                <EntitySet Name="GemiTanimSet" EntityType="ZLIMAN_TEST_SRV.GemiTanim" sap:content-version="1"/>
+                <EntitySet Name="SeferGemiSet" EntityType="ZLIMAN_TEST_SRV.SeferGemi" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:content-version="1"/>
+                <EntitySet Name="ZsdShGemiTanimSet" EntityType="ZLIMAN_TEST_SRV.ZsdShGemiTanim" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:content-version="1"/>
+                <EntitySet Name="ImoNoCollection" EntityType="ZLIMAN_TEST_SRV.ImoNo" sap:content-version="1"/>
+                <EntitySet Name="bayrakshSet" EntityType="ZLIMAN_TEST_SRV.bayraksh" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:addressable="false" sap:content-version="1"/>
+                <AssociationSet Name="GemiTanimSeferGemiSet" Association="ZLIMAN_TEST_SRV.GemiTanimSeferGemi" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1">
+                    <End EntitySet="GemiTanimSet" Role="FromRole_GemiTanimSeferGemi"/>
+                    <End EntitySet="SeferGemiSet" Role="ToRole_GemiTanimSeferGemi"/>
+                </AssociationSet>
+                <FunctionImport Name="CheckImoNo" ReturnType="ZLIMAN_TEST_SRV.ImoNo" EntitySet="ImoNoCollection" m:HttpMethod="GET">
+                    <Parameter Name="ImoNumber" Type="Edm.String" Mode="In" MaxLength="7"/>
+                </FunctionImport>
+            </EntityContainer>
+            <atom:link
+                xmlns:atom="http://www.w3.org/2005/Atom" rel="self" href="./sap/ZLIMAN_TEST_SRV/$metadata"/>
+                <atom:link
+                    xmlns:atom="http://www.w3.org/2005/Atom" rel="latest-version" href="./sap/ZLIMAN_TEST_SRV/$metadata"/>
+                </Schema>
+            </edmx:DataServices>
+        </edmx:Edmx>

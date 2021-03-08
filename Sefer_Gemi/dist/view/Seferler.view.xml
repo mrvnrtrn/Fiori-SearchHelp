@@ -1,0 +1,43 @@
+<mvc:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m"
+	controllerName="com.tosyali.deneme04Z_MERVET_0412.controller.Seferler" xmlns:html="http://www.w3.org/1999/xhtml"
+	xmlns:fb="sap.ui.comp.filterbar">
+	<App id="rootViewId">
+		<pages>
+			<Page title="Title" showNavButton="true" navButtonPress="onPressBack">
+				<content>
+					<core:Fragment fragmentName="com.tosyali.deneme04Z_MERVET_0412.view.fragments.OHeader" type="XML"/>
+					<Table items="{Seferler}">
+						<columns>
+							<Column>
+								<Text text="Imono-Geliş No"/>
+							</Column>
+							<Column>
+								<Text text="Faaliyet"/>
+							</Column>
+							<Column>
+								<Text text="Oluşturan Kullanıcı"/>
+							</Column>
+							<Column>
+								<Text text="Yanaşma Tarihi"/>
+							</Column>
+							<Column>
+								<Text text="Yanaşma Saati"/>
+							</Column>
+						</columns>
+						<items>
+							<ColumnListItem>
+								<cells>
+									<ObjectIdentifier title="{Imono}" text="{GelisNo}"/>
+									<ObjectIdentifier title="{path:'Faaliyet',formatter:'.myformatter.convertFaaliyet'}" text="{Liman}"/>
+									<Text text="{CreateUser}"/>
+									<Text text="{path : 'TahYanTar', type : 'sap.ui.model.type.DateTime', formatOptions:{pattern: 'dd.MM.yyyy'}}"></Text>
+									<Text text="{ path:'TahYanSaat', type: 'sap.ui.model.odata.type.Time', formatOptions: { pattern : 'HH:mm:ss' }}"></Text>
+								</cells>
+							</ColumnListItem>
+						</items>
+					</Table>
+				</content>
+			</Page>
+		</pages>
+	</App>
+</mvc:View>

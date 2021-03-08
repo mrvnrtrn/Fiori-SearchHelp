@@ -1,0 +1,9 @@
+<core:FragmentDefinition xmlns:core="sap.ui.core" xmlns="sap.m">
+	<SelectDialog title="Sefer Gemi Arama"
+	items="{/bayrakshSet}" 
+	liveChange="HandleSeferGemiSearchHelp" 
+	confirm="HandleSeferGemiHelpClose"
+	cancel="HandleSeferGemiHelpClose">
+		<StandardListItem title="{LAND1} - {LANDX} "/>
+	</SelectDialog>
+</core:FragmentDefinition>

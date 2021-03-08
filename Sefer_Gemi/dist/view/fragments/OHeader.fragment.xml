@@ -1,0 +1,9 @@
+<core:FragmentDefinition xmlns:core="sap.ui.core" xmlns="sap.m">
+		<ObjectHeader title="{Imono}" number="{GemiAdi}" numberUnit="{Dwt}">
+						<attributes>
+							<ObjectAttribute title="Gemi Adi" text="{GemiAdi}"/>
+							<ObjectAttribute title="Gemi Eski Adi" text="{GemiEskiAdi}"/>
+							<ObjectAttribute title="Armator" text="{Armator}" active="true" press="handleLinkObjectAttributePress"/>
+						</attributes>
+		</ObjectHeader>
+</core:FragmentDefinition>

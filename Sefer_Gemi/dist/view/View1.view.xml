@@ -1,0 +1,61 @@
+<mvc:View controllerName="com.tosyali.deneme04Z_MERVET_0412.controller.View1" xmlns:html="http://www.w3.org/1999/xhtml"
+	xmlns:mvc="sap.ui.core.mvc" displayBlock="true" xmlns="sap.m" xmlns:fb="sap.ui.comp.filterbar">
+	<App id="rootViewId">
+		<pages>
+			<Page title="Title" busy="{viewModel>/busy}">
+				<content>
+					<fb:FilterBar reset="onReset" search="onSearch" showRestoreButton="true" showClearButton="true">
+						<fb:filterGroupItems>
+							<fb:FilterGroupItem groupName="__$INTERNAL$" name="GemiAdi" label="GemiAdi" visibleInFilterBar="true">
+								<fb:control>
+									<Input id="ImonoId" showValueHelp="true" valueHelpOnly="true" valueHelpRequest="openGemilerSh"></Input>
+								</fb:control>
+							</fb:FilterGroupItem>
+						</fb:filterGroupItems>
+					</fb:FilterBar>
+					<Table items="{bayrakUlkeKod>/}">
+						<columns>
+							<Column>
+								<Text text="GEMİ ADI"></Text>
+							</Column>
+							<Column>
+								<Text text="GEMİ ESKİ ADI"></Text>
+							</Column>
+							<Column>
+								<Text text="ARMATÖR"></Text>
+							</Column>
+							<Column>
+								<Text text="YAPIM YILI"></Text>
+							</Column>
+							<Column>
+								<Text text="BOY"></Text>
+							</Column>
+						</columns>
+						<items>
+							<ColumnListItem>
+								<cells>
+									<ObjectIdentifier title="{bayrakUlkeKod>Imono}" text="{bayrakUlkeKod>GemiAdi}" titleActive="true" titlePress="onPressImono"/>
+									<Text text="{bayrakUlkeKod>GemiEskiAdi}"></Text>
+									<Text text="{bayrakUlkeKod>Armator}"></Text>
+									<Text text="{bayrakUlkeKod>YapimYili}"></Text>
+									<Text text="{bayrakUlkeKod>Boy}"></Text>
+								</cells>
+							</ColumnListItem>
+						</items>
+					</Table>
+				</content>
+				<footer>
+					<Toolbar>
+						<Button icon="sap-icon://alert" 
+						        visible="{path:'messages>/numberOfMessages',formatter:'.myFormatter.visibleMessagePopover'}"
+							    text="{messages>/numberOfMessages}" press="onPressMessagePopover"></Button>
+						<Button icon="sap-icon://alert" 
+						       visible="{= ${messages>/numberOfMessages} > 0 ? true : false }" 
+						       text="{messages>/numberOfMessages}"
+						       press="onPressMessagePopOver"/>
+					</Toolbar>
+				</footer>
+			</Page>
+		</pages>
+	</App>
+</mvc:View>
